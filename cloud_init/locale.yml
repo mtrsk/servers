@@ -1,0 +1,7 @@
+#cloud-config
+
+# Set the locale
+locale: en_US.UTF-8
+
+# Set the timezone for this instance
+timezone: "America/Sao_Paulo"
