@@ -8,11 +8,11 @@ data "cloudinit_config" "user_setup" {
     content      = file("${path.root}/cloud_init/locale.yml")
   }
 
-  # Give access to some users
+  # INSTALL NIXOS
   part {
     content_type = "text/cloud-config"
-    content = templatefile("${path.root}/cloud_init/users.yml", {
-      users = var.users
+    content = templatefile("${path.root}/cloud_init/install_nixos.yml", {
+      config_content = filebase64("${path.module}/host.nix")
     })
     merge_type = "list(append)+dict(recurse_array)+str()"
   }
