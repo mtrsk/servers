@@ -14,3 +14,6 @@ apply:
 destroy:
 	@terraform destroy
 
+build:
+	@cd packer; packer build -var-file=credentials.auto.pkvars.hcl .
+
