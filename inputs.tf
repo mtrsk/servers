@@ -1,13 +1,12 @@
-variable "vultr_api_key" {
-  type = string
+# Credentials
+# AWS
+variable "access_key" {
+  type      = string
+  sensitive = true
 }
 
-variable "users" {
-  type = list(object({
-    username = string
-    email    = string
-    fullname = string
-    pubkeys  = list(string)
-  }))
+variable "secret_access_key" {
+  type      = string
+  sensitive = true
 }
 

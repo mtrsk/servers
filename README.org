@@ -1,0 +1,7 @@
+* Servers
+
+My personal servers in different cloud providers, configured declaratively with:
+
+- Terraform
+- Packer
+- NixOS

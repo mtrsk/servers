@@ -1,13 +1,27 @@
-{pkgs, ...}:
-{
+{ modulesPath, pkgs, lib, ... }: {
+  imports = [
+    "${modulesPath}/virtualisation/amazon-image.nix"
+  ]
+  ++ lib.optionals (builtins.pathExists ./configuration-nix-generator.nix) [
+    ./configuration-nix-generator.nix
+  ];
+  ec2.hvm = true;
+
   security.sudo.wheelNeedsPassword = false;
   nix.trustedUsers = [ "@wheel" ];
+
+  # Open ports in the firewall.
+  networking.hostName = "nixos";
+  networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [
+	22
+  ];
+  networking.firewall.allowedUDPPorts = [ ];
 
   # SSH & related services
   services.openssh = {
     enable = true;
     passwordAuthentication = false;
-    permitRootLogin = "no";
     extraConfig = ''
       ChallengeResponseAuthentication no
       KerberosAuthentication no
@@ -17,7 +31,7 @@
     '';
   };
 
-  users.users.benevides = {
+  users.users.mtrsk = {
     isNormalUser = true;
     group = "users";
     extraGroups = [
@@ -41,14 +55,10 @@
     dates = "weekly UTC";
   };
 
-  networking.hostName = "nixos-vultr";
-  networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [ 22 ];
-
   # Packages
   environment.systemPackages = with pkgs; [
     git
-    nvim
+	neovim
     htop
   ];
 }

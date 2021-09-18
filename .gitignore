@@ -27,5 +27,16 @@ override.tf.json
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 *tfplan*
 
+# Packer
+# Cache objects
+packer_cache/
+
+# For built boxes
+*.box
+
+# Ignore any .pkvars files that are generated automatically for each Packer run.
+*.pkvars.hcl
+
 # Any env files
 *env*
+
