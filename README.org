@@ -5,3 +5,10 @@ My personal servers in different cloud providers, configured declaratively with:
 - Terraform
 - Packer
 - NixOS
+
+** Inspiration
+
+I'm currently borrowing lot's of ideas from these projects:
+
+- [[https://github.com/society-for-the-blind/nixos-azure-deploy][nixos-azure-deploy]]
+- [[https://github.com/nh2/nixos-ami-building][nixos-ami-building]]
