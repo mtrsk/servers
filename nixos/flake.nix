@@ -10,7 +10,7 @@
     , nixpkgs
     , ...
     }@inputs: {
-      nixosConfigurations.fieldops = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.example = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./configuration.nix

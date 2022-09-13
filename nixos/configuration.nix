@@ -61,7 +61,9 @@ in
   # Packages
   environment.systemPackages = with pkgs; [
     git
-	neovim
     htop
+    vim
   ];
+
+  system.stateVersion = "22.05";
 }
