@@ -1,13 +1,10 @@
-{ pkgs, inputs, ... }:
-
-let
-  inherit (inputs) nixpkgs;
-in
-{
+{ modulesPath, pkgs, lib, ... }: {
   imports = [
-    "${nixpkgs}/nixos/modules/virtualisation/amazon-image.nix"
+    "${modulesPath}/virtualisation/amazon-image.nix"
+  ]
+  ++ lib.optionals (builtins.pathExists ./configuration-nix-generator.nix) [
+    ./configuration-nix-generator.nix
   ];
-
   ec2.hvm = true;
 
   security.sudo.wheelNeedsPassword = false;

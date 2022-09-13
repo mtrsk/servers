@@ -13,7 +13,7 @@ build {
 
   provisioner "file" {
     destination = "/tmp/configuration.nix"
-    source      = "../nixos/configuration.nix"
+    source      = "../bootstrap/configuration.nix"
   }
 
   provisioner "shell" {

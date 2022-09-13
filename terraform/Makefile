@@ -1,7 +1,8 @@
 include .env
 export
 
-.PHONY: init
+.PHONY: apply build init plan
+
 init:
 	@terraform init
 
