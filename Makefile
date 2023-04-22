@@ -1,7 +1,8 @@
 include .env
 export
 
-.PHONY: init
+.PHONY: init plan
+
 init:
 	@terraform init
 
@@ -14,6 +15,5 @@ apply:
 destroy:
 	@terraform destroy
 
-build:
-	@cd packer; packer build -var-file=credentials.auto.pkvars.hcl .
-
+deploy:
+	nix run nixpkgs\#nixos-rebuild switch -- --flake .\#example --target-host mtrsk@$$HOST --build-host localhost --use-remote-sudo
