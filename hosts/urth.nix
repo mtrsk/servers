@@ -31,6 +31,16 @@
 
   services.nomad = {
     enable = true;
+    settings = {
+      # DEMO: no fault tolerance
+      server = {
+        enabled = true;
+        bootstrap_expect = 1;
+      };
+      client = {
+        enabled = true;
+      };
+    };
   };
 
   system.stateVersion = "22.11";
