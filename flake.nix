@@ -9,7 +9,7 @@
     nixosConfigurations.urth = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
-      modules = [ ./module.nix ];
+      modules = [ ./urth.nix ];
     };
   };
 }

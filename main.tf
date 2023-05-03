@@ -93,7 +93,7 @@ module "urth" {
   flake       = ".#urth"
   arguments   = ["--build-host", "root@${aws_instance.nixos-vm.public_ip}"]
   ssh_options = "-o StrictHostKeyChecking=accept-new -i ${local_sensitive_file.ssh_key_file.filename}"
-  depends_on  = [null_resource.wait]
+  #depends_on  = [null_resource.wait]
 }
 
 output "public_dns" {
