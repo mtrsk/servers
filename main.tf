@@ -88,12 +88,13 @@ resource "null_resource" "wait" {
 }
 
 module "urth" {
-  source      = "github.com/Gabriella439/terraform-nixos-ng//nixos?ref=d8563d06cc65bc699ffbf1ab8d692b1343ecd927"
-  host        = "root@${aws_instance.nixos-vm.public_ip}"
-  flake       = ".#urth"
-  arguments   = ["--build-host", "root@${aws_instance.nixos-vm.public_ip}"]
+  source = "github.com/Gabriella439/terraform-nixos-ng//nixos?ref=d8563d06cc65bc699ffbf1ab8d692b1343ecd927"
+  host   = "root@${aws_instance.nixos-vm.public_ip}"
+  flake  = ".#urth"
+  #arguments   = ["--build-host", "root@${aws_instance.nixos-vm.public_ip}"]
+  arguments   = []
   ssh_options = "-o StrictHostKeyChecking=accept-new -i ${local_sensitive_file.ssh_key_file.filename}"
-  #depends_on  = [null_resource.wait]
+  depends_on  = [null_resource.wait]
 }
 
 output "public_dns" {
