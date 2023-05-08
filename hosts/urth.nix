@@ -61,6 +61,7 @@
         bash
         dotnet-sdk
         gnumake
+        neovim
       ];
     };
   };
