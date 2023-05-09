@@ -3,5 +3,18 @@
 My personal servers in different cloud providers, configured declaratively with:
 
 - Terraform
-- Packer
 - NixOS
+
+** Bootstrap
+
+#+BEGIN_SRC shell
+  make init
+  make plan
+  make deploy
+#+END_SRC
+
+** Destroy
+
+#+BEGIN_SRC shell
+  make destroy
+#+END_SRC
